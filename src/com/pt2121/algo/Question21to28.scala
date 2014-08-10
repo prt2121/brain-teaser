@@ -55,12 +55,55 @@ object Question21to28 {
     randomSelect(ls.length, ls)
   }
 
+  def flatMapSublists[A, B](ls: List[A])(f: (List[A]) => List[B]): List[B] =
+    ls match {
+      case Nil => Nil
+      case sublist @ (_ :: tail) => f(sublist) ::: flatMapSublists(tail)(f)
+    }
+
+  /**
+   * P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
+   */
+  def combinations[A](n: Int, ls: List[A]): List[List[A]] =
+    if (n == 0) List(Nil)
+    else flatMapSublists(ls) { sl =>
+      combinations(n - 1, sl.tail) map { sl.head :: _ }
+    }
+
+  /**
+   * P27 (**) Group the elements of a set into disjoint subsets.
+   */
+  def group[T](ns: List[Int], ls: List[T]): List[List[List[T]]] = (ns, ls) match {
+    case (last :: Nil, xs) if (last == xs.length) => List(List(xs))
+    case (head :: tail, xs) => {
+      for {
+        com <- combinations(head, xs)
+        ys <- group(tail, xs diff com)
+      } yield com :: ys
+    }
+  }
+
+  def groupSol[A](ns: List[Int], ls: List[A]): List[List[List[A]]] = ns match {
+    case Nil => List(Nil)
+    case n :: ns => combinations(n, ls) flatMap { c =>
+      groupSol(ns, ls diff c) map { c :: _ }
+    }
+  }
+
   def main(args: Array[String]): Unit = {
-    println(insertAt('new, 4, List('a, 'b, 'c, 'd)))
-    println(range(2, 5))
-    println(randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)))
-    println(lotto(6, 49))
-    println(randomPermute(List('a, 'b, 'c, 'd, 'e, 'f)))
+    //    println(insertAt('new, 4, List('a, 'b, 'c, 'd)))
+    //    println(range(2, 5))
+    //    println(randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)))
+    //    println(lotto(6, 49))
+    //    println(randomPermute(List('a, 'b, 'c, 'd, 'e, 'f)))
+    //    println(combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)))
+    //    println(combinations(3, List('a, 'b, 'c, 'd, 'e, 'f)).size)
+    //println(combinations(2, List('a, 'b, 'c, 'd, 'e, 'f)))
+    //List(List(List(Aldo, Beat, Carla), List()), List(List(Aldo, Carla, Carla), List(Beat)), List(List(Beat, Beat, Carla), List(Aldo)), List(List(Beat, Carla, Carla), List(Aldo)), List(List(Carla, Beat, Carla), List(Aldo)), List(List(Carla, Carla, Carla), List(Aldo, Beat)))
+    println(group(List(1, 2), List("Aldo", "Beat", "Carla")))
+    lazy val g1 = group(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
+    lazy val g2 = groupSol(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
+    println(g1 == g2)
   }
 
 }
