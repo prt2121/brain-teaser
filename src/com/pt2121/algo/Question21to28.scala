@@ -90,6 +90,36 @@ object Question21to28 {
     }
   }
 
+  /**
+   * P28 (**) Sorting a list of lists according to length of sublists.
+   * a
+   */
+  def lsort[T](ls: List[List[T]]): List[List[T]] =
+    ls.sorted(Ordering.by[List[T], Int](_.length))
+
+  def pack[A](ls: List[A]): List[List[A]] = {
+    if (ls.isEmpty) List(List())
+    else {
+      val (packed, next) = ls span { _ == ls.head }
+      if (next == Nil) List(packed)
+      else packed :: pack(next)
+    }
+  }
+
+  // Run-length encoding of a list.
+  def encode[A](ls: List[A]): List[(Int, A)] =
+    pack(ls) map { e => (e.length, e.head) }
+
+  //http://stackoverflow.com/questions/6051302/what-does-colon-underscore-star-do-in-scala
+  /**
+   * P28 (**) Sorting a list of lists according to length of sublists.
+   * b
+   */
+  def lsortFreq[T](ls: List[List[T]]): List[List[T]] = {
+    val freqs = Map(encode(ls map { _.length } sortWith { _ < _ }) map { _.swap }: _*)
+    ls sortWith { (e1, e2) => freqs(e1.length) < freqs(e2.length) }
+  }
+
   def main(args: Array[String]): Unit = {
     //    println(insertAt('new, 4, List('a, 'b, 'c, 'd)))
     //    println(range(2, 5))
@@ -104,6 +134,8 @@ object Question21to28 {
     lazy val g1 = group(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
     lazy val g2 = groupSol(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
     println(g1 == g2)
+    println(lsort(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))))
+    println(lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))))
   }
 
 }
