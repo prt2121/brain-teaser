@@ -2,6 +2,8 @@ package com.pt2121.algo
 
 import scala.util.Random
 
+//TODO: redo 26 and 28
+
 object Question21to28 {
 
   /**
