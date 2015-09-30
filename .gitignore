@@ -22,3 +22,38 @@ project/plugins/project/
 .classpath
 .project
 .settings/
+
+
+# Haskell
+
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+.stack-work/
+
+# IntelliJ IDEA
+.idea
+*.iml
+annotations
+
+# Gradle
+.gradle
+gradlew.bat
+build
+local.properties
+reports
+jacoco.exec
+
+.DS_Store
