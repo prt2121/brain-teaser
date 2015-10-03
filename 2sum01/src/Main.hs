@@ -2,6 +2,7 @@ module Main where
 
 import Data.List
 import Data.Array
+import Data.Char
 -- import Control.Monad
 -- import qualified Data.IntMap as IntMap
 
@@ -24,6 +25,15 @@ binarySearch haystack needle l h
     m = l + (h-l) `div` 2
     pivot = haystack!m
 
+-- palindrome "a man, a plan, a canal: panama"
+-- ignore non-alpha
+palindrome :: [Char] -> Bool
+palindrome ls
+  | length ls <= 1            = True
+  | not (isAlpha (head ls))   = palindrome (tail ls)
+  | not (isAlpha (last ls))   = palindrome (init ls)
+  | (head ls) /= (last ls)    = False
+  | (head ls) == (last ls)    = palindrome (init (tail ls))
 
 main :: IO ()
 main = do
