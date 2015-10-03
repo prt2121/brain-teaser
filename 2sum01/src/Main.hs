@@ -35,6 +35,36 @@ palindrome ls
   | (head ls) /= (last ls)    = False
   | (head ls) == (last ls)    = palindrome (init (tail ls))
 
+
+-- Returns the index of the first occurrence of needle in haystack
+strStr :: String -> String -> Int
+strStr [] _   = 0
+strStr needle h    = loop h 1
+  where
+    loop [] _  = -1
+    loop s i =
+      let (prefix, _) = splitAt n s
+      in
+        if needle == prefix
+        then i
+        else loop (tail s) (i+1)
+    n = length needle
+
+  -- *Main> replaceStr "abcde" "bc" "x"
+  -- "axde"
+replaceStr :: String -> String -> String -> String
+replaceStr [] _ _ = []
+replaceStr str old new = loop str
+  where
+    loop [] = []
+    loop s =
+      let (prefix, rest) = splitAt n s
+      in
+        if old == prefix                -- found an occurrence?
+        then new ++ loop rest           -- yes: replace it
+        else head s : loop (tail s) -- no: keep looking
+    n = length old
+
 main :: IO ()
 main = do
   putStrLn "twoSum"
