@@ -6,9 +6,10 @@ import Data.Char
 -- import Control.Monad
 -- import qualified Data.IntMap as IntMap
 
+-- https://leetcode.com/problems/reverse-words-in-a-string/
 -- a two-pass solution
 reverseWords :: String -> String
-reverseWords = intercalate " " . map reverse . words
+reverseWords = intercalate " " . reverse . words
 
 twoSum :: [Integer] -> Integer -> Maybe (Integer, Integer)
 twoSum [] _     = Nothing
