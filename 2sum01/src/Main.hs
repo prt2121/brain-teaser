@@ -6,6 +6,10 @@ import Data.Char
 -- import Control.Monad
 -- import qualified Data.IntMap as IntMap
 
+-- a two-pass solution
+reverseWords :: String -> String
+reverseWords = intercalate " " . map reverse . words
+
 twoSum :: [Integer] -> Integer -> Maybe (Integer, Integer)
 twoSum [] _     = Nothing
 twoSum (l:ls) t = case (find (\x -> x + l == t) ls) of
