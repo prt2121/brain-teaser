@@ -11,6 +11,11 @@ import Data.Char
 reverseWords :: String -> String
 reverseWords = intercalate " " . reverse . words
 
+-- reverse char in each words
+-- a two-pass solution
+reverseChars :: String -> String
+reverseChars = intercalate " " . map reverse . words
+
 twoSum :: [Integer] -> Integer -> Maybe (Integer, Integer)
 twoSum [] _     = Nothing
 twoSum (l:ls) t = case (find (\x -> x + l == t) ls) of
