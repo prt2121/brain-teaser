@@ -114,6 +114,56 @@ public class Leet01 {
         return maxLen;
     }
 
+    public static String longestPalindrome(String s) {
+        int begin = 0;
+        int end = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int oddPosLen = longestPalindromeAtPosition(s, i, i);
+            int evenPosLen = longestPalindromeAtPosition(s, i, i + 1);
+            int max = Math.max(oddPosLen, evenPosLen);
+            if (max > end - begin) {
+                begin = i - (max - 1) / 2;
+                end = i + max / 2;
+            }
+        }
+        return s.substring(begin, end + 1);
+    }
+
+    private static int longestPalindromeAtPosition(String s, int l, int r) {
+        while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+            l--;
+            r++;
+        }
+        return r - l - 1;
+    }
+
+    public static boolean isOneEditDistance(String s, String t) {
+        int sLen = s.length();
+        int tLen = t.length();
+        int lenDiff = Math.abs(sLen - tLen);
+        if (lenDiff > 1) return false;
+        if (sLen > tLen) return isOneEditDistance(t, s);
+        int i = 0;
+        while (i < sLen && s.charAt(i) == t.charAt(i)) {
+            i++;
+        }
+        if (i == sLen && lenDiff == 1) return true;
+        if (i == sLen) return false;
+        // insert case
+        if (lenDiff == 1) {
+            while (i < sLen && s.charAt(i) == t.charAt(i + 1)) {
+                i++;
+            }
+            return i == sLen;
+        }
+        // modify case
+        i++;
+        while (i < sLen && s.charAt(i) == t.charAt(i)) {
+            i++;
+        }
+        return i == sLen;
+    }
+
     public static void main(String[] args) {
 //        try {
 //            System.out.println(atoi("2147483648"));
@@ -121,7 +171,18 @@ public class Leet01 {
 //            System.out.println(e.getMessage());
 //        }
         int l = lengthOfLongestSubstring3("abcdcedf");
-
         System.out.println(l);
+
+        String p = longestPalindrome("987xjhihjx123xabcbay");
+        System.out.println(p);
+
+        System.out.println(isOneEditDistance("abc", "abcd"));
+        System.out.println(isOneEditDistance("abc", "abc"));
+        System.out.println(isOneEditDistance("abc", "ab"));
+        System.out.println(isOneEditDistance("abc", "axbc"));
+        System.out.println(isOneEditDistance("abc", "xbc"));
+        System.out.println(isOneEditDistance("abc", "abx"));
+        System.out.println(isOneEditDistance("a", "axx"));
+        System.out.println(isOneEditDistance("xaby", "ab"));
     }
 }
