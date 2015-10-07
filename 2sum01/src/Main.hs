@@ -75,6 +75,16 @@ replaceStr str old new = loop str
         else head s : loop (tail s) -- no: keep looking
     n = length old
 
+-- reverse positive int
+-- 123 -> [3,2,1]
+reverseIntList :: Int -> [Int]
+reverseIntList 0 = []
+reverseIntList i = i `mod` 10 : reverseIntList (i `div` 10)
+
+reverseInt :: Int -> Int
+reverseInt x = foldl addDigit 0 (reverseIntList x)
+                  where addDigit n d = 10 * n + d
+
 main :: IO ()
 main = do
   putStrLn "twoSum"
