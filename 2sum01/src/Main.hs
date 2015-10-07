@@ -44,6 +44,7 @@ palindrome ls
   | not (isAlpha (last ls))   = palindrome (init ls)
   | (head ls) /= (last ls)    = False
   | (head ls) == (last ls)    = palindrome (init (tail ls))
+  | otherwise                         = False
 
 
 -- Returns the index of the first occurrence of needle in haystack
@@ -84,6 +85,16 @@ reverseIntList i = i `mod` 10 : reverseIntList (i `div` 10)
 reverseInt :: Int -> Int
 reverseInt x = foldl addDigit 0 (reverseIntList x)
                   where addDigit n d = 10 * n + d
+
+-- reverse positive int
+reversePosInt :: Integer -> Integer
+reversePosInt = read . reverse . show
+
+reverseInt'' :: Int -> Int
+reverseInt'' n = aux n 0
+             where aux 0 y = y
+                   aux x y = let (x',y') = x `quotRem` 10
+                             in aux x' (10*y+y')
 
 main :: IO ()
 main = do
