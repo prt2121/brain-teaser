@@ -84,11 +84,33 @@ fun mergeTwoSortedList(ls1: LinkedList<Int>, ls2: LinkedList<Int>): List<Int> {
     return l
 }
 
+fun addListOfNumbers(ls1: List<Int>, ls2: List<Int>): List<Int> {
+    fun ten(l: List<Int>): Pair<List<Int>, List<Int>> {
+        val ps = l.map {
+            it ->
+            Pair(it div 10, it mod 10)
+        }
+        return Pair(ps.map { it.first }, ps.map { it.second })
+    }
+
+    fun shiftAdd(ls: Pair<List<Int>, List<Int>>): List<Int> {
+        val sum = ls.first
+        val ten = ls.second
+        return listOf(0).plus(ten).reversed().merge(sum.plus(0).reversed(), {
+            x, y ->
+            x + y
+        }).reversed()
+    }
+    return shiftAdd(ten(ls1.merge(ls2, { x, y -> x + y })))
+}
+
+
 fun main(args: Array<String>) {
-    println("Hello, Kotlin!")
-    println(plusOne(listOf(1, 2, 9)))
-    println(plusOne(listOf(1, 9, 9)))
-    println(plusOne(listOf(9, 9, 9)))
+    //    println("Hello, Kotlin!")
+    //    println(plusOne(listOf(1, 2, 9)))
+    //    println(plusOne(listOf(1, 9, 9)))
+    //    println(plusOne(listOf(9, 9, 9)))
     assertTrue(palindromeNumber3(12321))
     assertEquals(mergeTwoSortedList(linkedListOf(0, 2, 4), linkedListOf(1, 5, 6)), listOf(0, 1, 2, 4, 5, 6))
+    assertEquals(addListOfNumbers(listOf(1, 5, 6), listOf(9, 9, 8)), listOf(1, 1, 5, 4))
 }
