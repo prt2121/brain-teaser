@@ -1,3 +1,7 @@
+import java.util.*
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
+
 /**
  * Created by pt2121 on 10/7/15.
  */
@@ -51,10 +55,40 @@ fun palindromeNumber3(num: Int): Boolean {
     return true
 }
 
+// imperative
+fun mergeTwoSortedList(ls1: LinkedList<Int>, ls2: LinkedList<Int>): List<Int> {
+    var i = 0
+    var j = 0
+    val len1 = ls1.size()
+    val len2 = ls2.size()
+    var l = listOf<Int>()
+    while (i < len1 && j < len2) {
+        var n1 = ls1.get(i)
+        var n2 = ls2.get(j)
+        if (n1 < n2) {
+            l = l.plus(n1)
+            i++
+        } else {
+            l = l.plus(n2)
+            j++
+        }
+    }
+    while (i < len1) {
+        l = l.plus(ls1.get(i))
+        i++
+    }
+    while (j < len2) {
+        l = l.plus(ls2.get(j))
+        j++
+    }
+    return l
+}
+
 fun main(args: Array<String>) {
     println("Hello, Kotlin!")
     println(plusOne(listOf(1, 2, 9)))
     println(plusOne(listOf(1, 9, 9)))
     println(plusOne(listOf(9, 9, 9)))
-    println(palindromeNumber3(12321))
+    assertTrue(palindromeNumber3(12321))
+    assertEquals(mergeTwoSortedList(linkedListOf(0, 2, 4), linkedListOf(1, 5, 6)), listOf(0, 1, 2, 4, 5, 6))
 }
