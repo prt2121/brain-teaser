@@ -35,10 +35,26 @@ fun palindromeNumber2(num: Int): Boolean {
     return i == num
 }
 
+fun palindromeNumber3(num: Int): Boolean {
+    var divider = 1
+    while (num div divider >= 10) {
+        divider *= 10
+    }
+    var n = num
+    while (n != 0) {
+        val first = n div divider
+        val last = n mod 10
+        if (first != last) return false
+        n = (n mod divider) div 10
+        divider /= 100
+    }
+    return true
+}
+
 fun main(args: Array<String>) {
     println("Hello, Kotlin!")
     println(plusOne(listOf(1, 2, 9)))
     println(plusOne(listOf(1, 9, 9)))
     println(plusOne(listOf(9, 9, 9)))
-    println(palindromeNumber2(12321))
+    println(palindromeNumber3(12321))
 }
