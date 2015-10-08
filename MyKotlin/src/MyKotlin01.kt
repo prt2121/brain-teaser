@@ -19,9 +19,26 @@ fun plusOne(digits: List<Int>): List<Int> {
     }
 }
 
+fun palindromeNumber(num: Int): Boolean {
+    val s = num.toString()
+    return s == s.reversed()
+}
+
+// imperative
+fun palindromeNumber2(num: Int): Boolean {
+    var i = 0
+    var n = num
+    while (n > 0) {
+        i = (n mod 10) + i * 10;
+        n = n div 10
+    }
+    return i == num
+}
+
 fun main(args: Array<String>) {
     println("Hello, Kotlin!")
     println(plusOne(listOf(1, 2, 9)))
     println(plusOne(listOf(1, 9, 9)))
     println(plusOne(listOf(9, 9, 9)))
+    println(palindromeNumber2(12321))
 }
