@@ -104,6 +104,37 @@ fun addListOfNumbers(ls1: List<Int>, ls2: List<Int>): List<Int> {
     return shiftAdd(ten(ls1.merge(ls2, { x, y -> x + y })))
 }
 
+// Merge K Sorted Linked Lists
+fun mergeKSortedLists(lists: List<LinkedList<Int>>): LinkedList<Int>? {
+    fun isNotEmpty(lists: List<LinkedList<Int>>): Boolean {
+        val k = lists.size()
+        for (i in 1..k)
+            if (lists.get(i - 1).isNotEmpty())
+                return true
+        return false
+    }
+
+    if (lists.size() == 0)
+        return null
+    val k = lists.size()
+    val q = PriorityQueue<Int>(k)
+    for (i in 1..k) {
+        q.add(lists.get(i - 1).poll())
+    }
+    val ret = LinkedList<Int>()
+    while (isNotEmpty(lists) || q.isNotEmpty()) {
+        while (q.isNotEmpty()) {
+            val x = q.poll()
+            ret.add(x)
+        }
+        if (isNotEmpty(lists)) {
+            for (i in 1..k) {
+                q.add(lists.get(i - 1).poll())
+            }
+        }
+    }
+    return ret
+}
 
 fun main(args: Array<String>) {
     //    println("Hello, Kotlin!")
@@ -113,4 +144,8 @@ fun main(args: Array<String>) {
     assertTrue(palindromeNumber3(12321))
     assertEquals(mergeTwoSortedList(linkedListOf(0, 2, 4), linkedListOf(1, 5, 6)), listOf(0, 1, 2, 4, 5, 6))
     assertEquals(addListOfNumbers(listOf(1, 5, 6), listOf(9, 9, 8)), listOf(1, 1, 5, 4))
+    val l1 = linkedListOf(1, 2, 5)
+    val l2 = linkedListOf(2, 3, 4)
+    val ls = listOf(l1, l2)
+    assertEquals(mergeKSortedLists(ls), linkedListOf(1, 2, 2, 3, 4, 5))
 }
