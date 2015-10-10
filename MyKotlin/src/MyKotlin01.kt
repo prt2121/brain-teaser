@@ -136,6 +136,73 @@ fun mergeKSortedLists(lists: List<LinkedList<Int>>): LinkedList<Int>? {
     return ret
 }
 
+// Definition for singly-linked list with a random pointer.
+private data class RandomListNode(val label: Int) {
+    var next: RandomListNode? = null
+    var random: RandomListNode? = null
+
+    override fun toString(): String {
+        val n = next?.label ?: "null"
+        val r = random?.label ?: "null"
+        return "label: $label, next: $n, random: $r"
+    }
+}
+
+fun copyRandomList(head: RandomListNode): RandomListNode {
+    val map = HashMap<RandomListNode?, RandomListNode?>()
+    var p = head
+    val pointer = RandomListNode(0)
+    var copy = pointer
+    while (p.next != null) {
+        copy.next = RandomListNode(p.label)
+        map.put(p, copy.next)
+        p = p.next!!
+        copy = copy.next!!
+    }
+    // last node
+    copy.next = RandomListNode(p.label)
+    map.put(p, copy.next)
+
+    p = head
+    copy = pointer
+    while (p.next != null) {
+        copy.next?.random = map.get(p.random)
+        p = p.next!!
+        copy = copy.next!!
+    }
+    copy.next?.random = map.get(p.random)
+
+    return pointer.next!!
+}
+
+// Brute force
+fun isValidBst(root: TreeNode?): Boolean {
+    if (root == null) return true
+    return isSubtreeLessThan(root.left, root.item) && isSubtreeGreaterThan(root.right, root.item)
+            && isValidBst(root.left) && isValidBst(root.right)
+}
+
+fun isSubtreeLessThan(root: TreeNode?, value: Int): Boolean {
+    if (root == null) return true
+    return root.item < value && isSubtreeLessThan(root.left, root.item) && isSubtreeLessThan(root.right, root.item)
+}
+
+fun isSubtreeGreaterThan(root: TreeNode?, value: Int): Boolean {
+    if (root == null) return true
+    return root.item > value && isSubtreeGreaterThan(root.right, root.item) && isSubtreeGreaterThan(root.right, root.item)
+}
+
+class TreeNode(val item: Int, val left: TreeNode? = null, val right: TreeNode? = null) {
+    fun itemCheck(): Int {
+        var res = item
+        if (left != null)
+            res += left.itemCheck()
+        if (right != null)
+            res -= right.itemCheck()
+        return res
+    }
+}
+
 fun main(args: Array<String>) {
     //    println("Hello, Kotlin!")
     //    println(plusOne(listOf(1, 2, 9)))
@@ -148,4 +215,24 @@ fun main(args: Array<String>) {
     val l2 = linkedListOf(2, 3, 4)
     val ls = listOf(l1, l2)
     assertEquals(mergeKSortedLists(ls), linkedListOf(1, 2, 2, 3, 4, 5))
+
+    val r1 = RandomListNode(1)
+    val r2 = RandomListNode(2)
+    val r3 = RandomListNode(3)
+    val r4 = RandomListNode(4)
+    r1.next = r2
+    r2.next = r3
+    r3.next = r4
+    r1.random = r3
+    r2.random = r1
+    r3.random = r4
+    r4.random = r2
+
+    var c1 = copyRandomList(r1)
+
+    while (c1.next != null) {
+        println(c1)
+        c1 = c1.next!!
+    }
+    println(c1)
 }
