@@ -1,3 +1,4 @@
+import java.io.File
 import java.util.*
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -209,12 +210,12 @@ fun main(args: Array<String>) {
     //    println(plusOne(listOf(1, 9, 9)))
     //    println(plusOne(listOf(9, 9, 9)))
     assertTrue(palindromeNumber3(12321))
-    assertEquals(mergeTwoSortedList(linkedListOf(0, 2, 4), linkedListOf(1, 5, 6)), listOf(0, 1, 2, 4, 5, 6))
-    assertEquals(addListOfNumbers(listOf(1, 5, 6), listOf(9, 9, 8)), listOf(1, 1, 5, 4))
+    assertEquals(listOf(0, 1, 2, 4, 5, 6), mergeTwoSortedList(linkedListOf(0, 2, 4), linkedListOf(1, 5, 6)))
+    assertEquals(listOf(1, 1, 5, 4), addListOfNumbers(listOf(1, 5, 6), listOf(9, 9, 8)))
     val l1 = linkedListOf(1, 2, 5)
     val l2 = linkedListOf(2, 3, 4)
     val ls = listOf(l1, l2)
-    assertEquals(mergeKSortedLists(ls), linkedListOf(1, 2, 2, 3, 4, 5))
+    assertEquals(linkedListOf(1, 2, 2, 3, 4, 5), mergeKSortedLists(ls))
 
     val r1 = RandomListNode(1)
     val r2 = RandomListNode(2)
@@ -235,4 +236,16 @@ fun main(args: Array<String>) {
         c1 = c1.next!!
     }
     println(c1)
+
+    assertEquals(2.toLong(), countInversion(listOf(2, 1, 4, 3, 5)))
+    assertEquals(5.toLong(), countInversion(listOf(1, 20, 6, 4, 5)))
+    assertEquals(1.toLong(), countInversion(listOf(1, 20, 6)))
+    assertEquals(15.toLong(), countInversion(listOf(2, 17, 21, 1, 20, 6, 4, 5)))
+
+    println("File " + File(".").absoluteFile)
+
+    val lines = File("IntegerArray.txt").readLines()
+    val ints = lines.map { it.toInt() }
+    println(countInversion(ints))
 }
+// 2407905288
