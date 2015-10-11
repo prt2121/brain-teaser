@@ -53,12 +53,20 @@ tree1 = Branch 'a' (Branch 'b' (leaf 'd')
 t1 :: Tree Int
 t1 = Branch 5
       (Branch 2 (leaf 1) (leaf 4))
-      (Branch 9 (leaf 7) (leaf 12))
+      (Branch 9 (leaf 7) (Branch 12 (leaf 10) (leaf 15)))
 
 t2 :: Tree Int
 t2 = Branch 5
       (Branch 2 (leaf 1) (leaf 4))
       (Branch 9 (leaf 3) (leaf 12))
+
+maxDepth :: Tree a -> Int
+maxDepth Empty  = 0
+maxDepth t      = 1 + max (maxDepth(left t)) (maxDepth(right t))
+
+minDepth :: Tree a -> Int
+minDepth Empty  = 0
+minDepth t      = 1 + min (minDepth(left t)) (minDepth(right t))
 
 main :: IO ()
 main = do
