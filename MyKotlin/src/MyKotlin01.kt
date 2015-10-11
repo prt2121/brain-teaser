@@ -237,15 +237,22 @@ fun main(args: Array<String>) {
     }
     println(c1)
 
-    assertEquals(2.toLong(), countInversion(listOf(2, 1, 4, 3, 5)))
-    assertEquals(5.toLong(), countInversion(listOf(1, 20, 6, 4, 5)))
-    assertEquals(1.toLong(), countInversion(listOf(1, 20, 6)))
-    assertEquals(15.toLong(), countInversion(listOf(2, 17, 21, 1, 20, 6, 4, 5)))
+//    assertEquals(2.toLong(), countInversion(listOf(2, 1, 4, 3, 5)))
+//    assertEquals(5.toLong(), countInversion(listOf(1, 20, 6, 4, 5)))
+//    assertEquals(1.toLong(), countInversion(listOf(1, 20, 6)))
+//    assertEquals(15.toLong(), countInversion(listOf(2, 17, 21, 1, 20, 6, 4, 5)))
+//
+//    println("File " + File(".").absoluteFile)
+//
+//    val lines = File("IntegerArray.txt").readLines()
+//    val ints = lines.map { it.toInt() }
+//    println(countInversion(ints))
 
-    println("File " + File(".").absoluteFile)
-
-    val lines = File("IntegerArray.txt").readLines()
-    val ints = lines.map { it.toInt() }
-    println(countInversion(ints))
+    assertEquals('a', findSingle01(listOf('c', 'e', 'c', 'a', 'd', 'd', 'e')))
+    assertEquals(1, findSingle01(listOf(1)))
+    assertEquals("xx", findSingle02(listOf("yy", "zz", "xx", "yy", "zz")))
+    assertEquals(1, findSingleNum(listOf(1)))
+    assertEquals(1, findSingleNum(listOf(2, 1, 3, 2, 3)))
+    assertEquals(1, findSingleNum(listOf(2, 2, 4, 4, 1)))
 }
 // 2407905288
