@@ -68,6 +68,10 @@ minDepth :: Tree a -> Int
 minDepth Empty  = 0
 minDepth t      = 1 + min (minDepth(left t)) (minDepth(right t))
 
+isBalanced :: Tree a -> Bool
+isBalanced Empty  = True
+isBalanced t      = isBalanced(left t) && isBalanced(right t) && abs(maxDepth(left t) - maxDepth(right t)) <= 1
+
 main :: IO ()
 main = do
   putStrLn "hello world"
