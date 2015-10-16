@@ -204,10 +204,7 @@ class TreeNode(val item: Int, val left: TreeNode? = null, val right: TreeNode? =
 }
 
 fun main(args: Array<String>) {
-    //    println("Hello, Kotlin!")
-    //    println(plusOne(listOf(1, 2, 9)))
-    //    println(plusOne(listOf(1, 9, 9)))
-    //    println(plusOne(listOf(9, 9, 9)))
+
     assertTrue(palindromeNumber3(12321))
     assertEquals(listOf(0, 1, 2, 4, 5, 6), mergeTwoSortedList(linkedListOf(0, 2, 4), linkedListOf(1, 5, 6)))
     assertEquals(listOf(1, 1, 5, 4), addListOfNumbers(listOf(1, 5, 6), listOf(9, 9, 8)))
@@ -259,5 +256,8 @@ fun main(args: Array<String>) {
         assertEquals(climbStairs01(i), climbStairs02(i))
     }
 
+    //    println(plusOne(listOf(1, 2, 9)))
+    //    println(plusOne(listOf(1, 9, 9)))
+    //    println(plusOne(listOf(9, 9, 9)))
 }
 // 2407905288
