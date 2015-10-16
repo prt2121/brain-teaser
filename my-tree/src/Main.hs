@@ -2,6 +2,11 @@ module Main where
 
 import Data.Maybe
 
+last' xs = head (drop (length xs - 1) xs)
+
+last'' xs = xs !! (length xs - 1)
+
+
 data Tree a = Empty | Branch a (Tree a) (Tree a)
               deriving (Show, Eq)
 
