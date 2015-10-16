@@ -4,6 +4,22 @@ import java.util.*
  * Created by pt2121 on 10/11/15.
  */
 
+fun climbStairs01(n: Int): Int {
+    if (n <= 2) return n
+    return climbStairs01(n - 1) + climbStairs01(n - 2)
+}
+
+fun climbStairs02(n: Int): Int {
+    if (n <= 2) return n
+    var ls = IntArray(n + 1)
+    ls[1] = 1
+    ls[2] = 2
+    for (i in 3..n) {
+        ls[i] = ls[i - 1] + ls[i - 2]
+    }
+    return ls[n]
+}
+
 fun findSingle01<T>(ls: List<T>): T {
     val map = HashMap<T, Int>()
     ls.forEach { it ->
