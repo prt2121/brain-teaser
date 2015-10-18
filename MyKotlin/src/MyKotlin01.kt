@@ -1,5 +1,6 @@
 import java.util.*
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 /**
@@ -270,5 +271,16 @@ fun main(args: Array<String>) {
     //    println(plusOne(listOf(1, 2, 9)))
     //    println(plusOne(listOf(1, 9, 9)))
     //    println(plusOne(listOf(9, 9, 9)))
+
+    val v = Validator()
+    assertTrue { v.validParentheses("println(climbStairs01(i).toString()  + climbStairs02(i))") }
+    assertFalse { v.validParentheses("(println(climbStairs01(i).toString()  + climbStairs02(i))") }
+    assertFalse { v.validParentheses("println(climbStairs01(i).toString())  + climbStairs02(i))") }
+    assertTrue { v.validParentheses("(println(climbStairs01(i).toString()  + climbStairs02(i)))") }
+    assertTrue { v.validParentheses("()") }
+    assertTrue { v.validParentheses("(1, 2, 3)") }
+
+//    val map: Map<Char, Char> = hashMapOf(Pair('(', ')'), Pair('{', '}'), Pair('[', ']'))
+//    println(map.get('('))
 }
 // 2407905288
