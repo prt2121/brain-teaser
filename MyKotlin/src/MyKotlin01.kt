@@ -251,11 +251,22 @@ fun main(args: Array<String>) {
     assertEquals(1, findSingleNum(listOf(2, 1, 3, 2, 3)))
     assertEquals(1, findSingleNum(listOf(2, 2, 4, 4, 1)))
 
-    for(i in 1..20) {
+    for (i in 1..20) {
         println(climbStairs01(i).toString() + ", " + climbStairs02(i))
         assertEquals(climbStairs01(i), climbStairs02(i))
     }
 
+    val minStack: MinStack<Char> = MinStack()
+    minStack.push('b')
+    minStack.push('c')
+    minStack.push('b')
+    minStack.push('c')
+    minStack.push('a')
+    assertEquals('a', minStack.peekMin())
+    assertEquals('a', minStack.pop())
+    assertEquals('b', minStack.peekMin())
+    assertEquals('c', minStack.pop())
+    assertEquals('b', minStack.peekMin())
     //    println(plusOne(listOf(1, 2, 9)))
     //    println(plusOne(listOf(1, 9, 9)))
     //    println(plusOne(listOf(9, 9, 9)))
