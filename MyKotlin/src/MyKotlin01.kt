@@ -280,7 +280,13 @@ fun main(args: Array<String>) {
     assertTrue { v.validParentheses("()") }
     assertTrue { v.validParentheses("(1, 2, 3)") }
 
-//    val map: Map<Char, Char> = hashMapOf(Pair('(', ')'), Pair('{', '}'), Pair('[', ']'))
-//    println(map.get('('))
+    assertEquals(6, countPaths(3, 3))
+    assertEquals(6, countPaths2(3, 3))
+
+    assertEquals(countPaths(3, 4), countPaths2(3, 4))
+    assertEquals(countPaths(4, 4), countPaths2(4, 4))
+    assertEquals(countPaths(5, 2), countPaths2(5, 2))
+    //    val map: Map<Char, Char> = hashMapOf(Pair('(', ')'), Pair('{', '}'), Pair('[', ']'))
+    //    println(map.get('('))
 }
 // 2407905288
