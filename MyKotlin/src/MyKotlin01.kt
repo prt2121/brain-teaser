@@ -288,5 +288,7 @@ fun main(args: Array<String>) {
     assertEquals(countPaths(5, 2), countPaths2(5, 2))
     //    val map: Map<Char, Char> = hashMapOf(Pair('(', ')'), Pair('{', '}'), Pair('[', ']'))
     //    println(map.get('('))
+
+    assertEquals(7, maxSubArray(intArrayOf(-1, -2, 3, 4)))
 }
 // 2407905288
