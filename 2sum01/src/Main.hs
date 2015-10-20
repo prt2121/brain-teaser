@@ -22,6 +22,19 @@ twoSum (l:ls) t = case (find (\x -> x + l == t) ls) of
                     Just y -> Just (l, y)
                     Nothing -> twoSum ls t
 
+qsort :: Ord t => [t] -> [t]
+qsort [] = []
+qsort (x : xs) = qsort larger ++ [x] ++ qsort smaller
+  where smaller = [a | a <- xs, a < x]
+        larger  = [b | b <- xs, b > x]
+
+qsort' :: Ord t => [t] -> [t]
+qsort' [] = []
+qsort' (x:xs) = qsort larger ++ [x] ++ qsort smaller
+  where
+    larger  = [a | a <- xs, a > x || a == x]
+    smaller = [b | b <- xs, b < x]
+
 -- *Main> let arr = array (1,3) [(1,42),(2,87),(3,95)]
 -- *Main> binarySearch  arr 87 1 3
 -- Just 2
