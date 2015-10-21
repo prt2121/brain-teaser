@@ -290,5 +290,7 @@ fun main(args: Array<String>) {
     //    println(map.get('('))
 
     assertEquals(7, maxSubArray(intArrayOf(-1, -2, 3, 4)))
+    assertEquals(6, maxProductSubArray(intArrayOf(2, 3, -2, 4)))
+    assertEquals(112, maxProductSubArray(intArrayOf(1, -2, -3, 0, 7, -8, -2)))
 }
 // 2407905288
