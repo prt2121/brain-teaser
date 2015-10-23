@@ -206,6 +206,10 @@ class TreeNode(val item: Int, val left: TreeNode? = null, val right: TreeNode? =
 
 fun main(args: Array<String>) {
 
+    assertEquals(2, searchInsertPosition(intArrayOf(1, 3, 5, 6).toTypedArray(), 5))
+    assertEquals(1, searchInsertPosition(intArrayOf(1, 3, 5, 6).toTypedArray(), 2))
+    assertEquals(2, searchInsertPosition(arrayOf("abc", "ijk", "xyz"), "xyz"))
+
     assertTrue(palindromeNumber3(12321))
     assertEquals(listOf(0, 1, 2, 4, 5, 6), mergeTwoSortedList(linkedListOf(0, 2, 4), linkedListOf(1, 5, 6)))
     assertEquals(listOf(1, 1, 5, 4), addListOfNumbers(listOf(1, 5, 6), listOf(9, 9, 8)))

@@ -1,6 +1,21 @@
 /**
  * Created by pt2121 on 10/20/15.
  */
+
+fun searchInsertPosition<T : Comparable<T>>(a: Array<T>, target: T): Int {
+    var l = 0
+    var r = a.size() - 1
+    while (l < r) {
+        val m = (l + r) / 2
+        if (a[m] < target) {
+            l = m + 1
+        } else {
+            r = m
+        }
+    }
+    return if (a[l] < target) l + 1 else l
+}
+
 fun maxSubArray(a: IntArray): Int {
     var maxEndHere = a[0]
     var maxSoFar = a[0]
