@@ -9,9 +9,9 @@ import java.util.*
 
 fun twoSumBruteForce(arr: Array<Int>, target: Int): Pair<Int, Int>? {
   val lastIndex = arr.lastIndex
-  for (i in 0..lastIndex) {
+  arr.forEachIndexed { i, v ->
     for (j in (i + 1)..lastIndex) {
-      if (arr[i] + arr[j] == target)
+      if (v + arr[j] == target)
         return Pair(i + 1, j + 1) // not zero base
     }
   }
@@ -20,8 +20,7 @@ fun twoSumBruteForce(arr: Array<Int>, target: Int): Pair<Int, Int>? {
 
 fun twoSumHashMap(arr: Array<Int>, target: Int): Pair<Int, Int>? {
   val map = HashMap<Int, Int>()
-  for (i in 0..arr.lastIndex) {
-    val current = arr[i]
+  arr.forEachIndexed { i, current ->
     val k = target - current
     if (map.containsKey(k)) {
       return Pair(map[k]!! + 1, i + 1)
@@ -32,10 +31,22 @@ fun twoSumHashMap(arr: Array<Int>, target: Int): Pair<Int, Int>? {
   return null
 }
 
-//fun twoSumOfSortedArray(arr: Array<Int>, target: Int): Pair<Int, Int>? {
-//
-//}
-
+fun twoSumOfSortedArray(arr: Array<Int>, target: Int): Pair<Int, Int>? {
+  var rightIndex = arr.lastIndex
+  var leftIndex = 0
+  while (leftIndex < rightIndex) {
+    val v = arr[leftIndex]
+    val right = arr[rightIndex]
+    if (v + right == target) {
+      return Pair(leftIndex + 1, rightIndex + 1)
+    } else if (v + right > target) {
+      rightIndex--
+    } else {
+      leftIndex++
+    }
+  }
+  return null
+}
 
 fun main(args: Array<String>) {
 }

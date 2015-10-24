@@ -20,4 +20,13 @@ class twoSumTest {
   @test fun testTwoSumHashMap() {
     testUnsorted(::twoSumHashMap)
   }
+
+  @test fun testTwoSumOfSortedArray() {
+    val a1 = intArrayOf(1, 2, 3, 5, 7, 9).toTypedArray()
+    assertThat(twoSumOfSortedArray(a1, 7)).isEqualTo(Pair(2, 4))
+    val a2 = intArrayOf(1, 2, 3, 7).toTypedArray()
+    assertNull(twoSumOfSortedArray(a2, 7))
+    val a3 = intArrayOf(5, 5).toTypedArray()
+    assertThat(twoSumOfSortedArray(a3, 10)).isEqualTo(Pair(1, 2))
+  }
 }
