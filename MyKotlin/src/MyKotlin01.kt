@@ -205,13 +205,6 @@ class TreeNode(val item: Int, val left: TreeNode? = null, val right: TreeNode? =
 }
 
 fun main(args: Array<String>) {
-    //1 2 3 5 8 4 7 6
-    val x = intArrayOf(3, 8, 2, 5, 1, 4, 7, 6)
-    val sorted = QuickSort.sort(x.toTypedArray())
-    sorted.forEach { print(it.toString() + " ") }
-    println("\n================")
-    //println(partition(x.toTypedArray(), 0, 7).forEach { print(it.toString() + " ") })
-
     assertEquals(2, searchInsertPosition(intArrayOf(1, 3, 5, 6).toTypedArray(), 5))
     assertEquals(1, searchInsertPosition(intArrayOf(1, 3, 5, 6).toTypedArray(), 2))
     assertEquals(2, searchInsertPosition(arrayOf("abc", "ijk", "xyz"), "xyz"))
@@ -302,5 +295,12 @@ fun main(args: Array<String>) {
     assertEquals(7, maxSubArray(intArrayOf(-1, -2, 3, 4)))
     assertEquals(6, maxProductSubArray(intArrayOf(2, 3, -2, 4)))
     assertEquals(112, maxProductSubArray(intArrayOf(1, -2, -3, 0, 7, -8, -2)))
+
+    //1 2 3 5 8 4 7 6
+    val x = intArrayOf(3, 8, 2, 5, 1, 4, 7, 6)
+    val sorted = QuickSort.sort(x.toTypedArray())
+    sorted.forEach { print(it.toString() + " ") }
+    println("\n================")
+    //println(partition(x.toTypedArray(), 0, 7).forEach { print(it.toString() + " ") })
 }
 // 2407905288
