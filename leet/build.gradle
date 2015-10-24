@@ -1,25 +1,26 @@
 buildscript {
-  repositories {
-    mavenCentral()
-    maven {
-      url 'http://oss.sonatype.org/content/repositories/snapshots'
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://oss.sonatype.org/content/repositories/snapshots'
+        }
     }
-  }
-  dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-beta-1038'
-  }
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-beta-1038'
+    }
 }
 
 apply plugin: 'kotlin'
 
 repositories {
-  mavenCentral()
-  maven {
-    url 'http://oss.sonatype.org/content/repositories/snapshots'
-  }
+    mavenCentral()
+    maven {
+        url 'http://oss.sonatype.org/content/repositories/snapshots'
+    }
 }
 
 dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1038'
-	testCompile 'junit:junit:4.11'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1038'
+    testCompile 'junit:junit:4.11'
+    testCompile 'com.google.truth:truth:0.27'
 }

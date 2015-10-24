@@ -8,27 +8,28 @@ import java.util.*
 // return indices of the two numbers such that they add up to the target
 
 fun twoSumBruteForce(arr: Array<Int>, target: Int): Pair<Int, Int>? {
-    for (i in 0..arr.lastIndex) {
-        for (j in i..arr.lastIndex) {
-            if (arr[i] + arr[j] == target)
-                return Pair(i + 1, j + 1) // not zero base
-        }
+  val lastIndex = arr.lastIndex
+  for (i in 0..lastIndex) {
+    for (j in (i + 1)..lastIndex) {
+      if (arr[i] + arr[j] == target)
+        return Pair(i + 1, j + 1) // not zero base
     }
-    return null;
+  }
+  return null;
 }
 
 fun twoSumHashMap(arr: Array<Int>, target: Int): Pair<Int, Int>? {
-    val map = HashMap<Int, Int>()
-    for (i in 0..arr.lastIndex) {
-        val current = arr[i]
-        val k = target - current
-        if (map.containsKey(k)) {
-            return Pair(map[k]!! + 1, i + 1)
-        } else {
-            map.put(current, i)
-        }
+  val map = HashMap<Int, Int>()
+  for (i in 0..arr.lastIndex) {
+    val current = arr[i]
+    val k = target - current
+    if (map.containsKey(k)) {
+      return Pair(map[k]!! + 1, i + 1)
+    } else {
+      map.put(current, i)
     }
-    return null
+  }
+  return null
 }
 
 //fun twoSumOfSortedArray(arr: Array<Int>, target: Int): Pair<Int, Int>? {
