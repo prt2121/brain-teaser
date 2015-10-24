@@ -7,6 +7,41 @@
  *
  * https://leetcode.com/problems/add-two-numbers/
  */
+
+
+class Node(var value: Int = 0, var next: Node? = null) {}
+
+// O(N)
+fun addNumbers(ls1: Node?, ls2: Node?): Node? {
+  var num1 = ls1
+  var num2 = ls2
+  var current: Node? = Node()
+  var next: Node?
+  var ret: Node? = current
+  var carry = false
+  while (num1 != null && num2 != null) {
+    next = Node()
+    val x = num1.value + num2.value + if (carry) 1 else 0
+    if (x > 9) {
+      carry = true
+      current!!.value = x - 10
+      current.next = next
+    } else {
+      carry = false
+      current!!.value = x
+      current.next = next
+    }
+    current = next
+    num1 = num1.next
+    num2 = num2.next
+  }
+  if (carry) {
+    current!!.value = 1
+  }
+  return ret
+}
+
+// functional
 fun addTwoNumbers(num1: List<Int>, num2: List<Int>): List<Int> {
   val added = num1.zip(num2) {
     n1, n2 ->
@@ -19,3 +54,4 @@ fun addTwoNumbers(num1: List<Int>, num2: List<Int>): List<Int> {
   }
   return if (added.second) added.first.plus(1) else added.first
 }
+
