@@ -12,7 +12,7 @@ fun twoSumBruteForce(arr: Array<Int>, target: Int): Pair<Int, Int>? {
   arr.forEachIndexed { i, v ->
     for (j in (i + 1)..lastIndex) {
       if (v + arr[j] == target)
-        return Pair(i + 1, j + 1) // not zero base
+        return i + 1 to j + 1 // not zero base
     }
   }
   return null;
@@ -23,7 +23,7 @@ fun twoSumHashMap(arr: Array<Int>, target: Int): Pair<Int, Int>? {
   arr.forEachIndexed { i, current ->
     val k = target - current
     if (map.containsKey(k)) {
-      return Pair(map[k]!! + 1, i + 1)
+      return map[k]!! + 1 to i + 1
     } else {
       map.put(current, i)
     }
@@ -38,7 +38,7 @@ fun twoSumOfSortedArray(arr: Array<Int>, target: Int): Pair<Int, Int>? {
     val v = arr[leftIndex]
     val right = arr[rightIndex]
     if (v + right == target) {
-      return Pair(leftIndex + 1, rightIndex + 1)
+      return leftIndex + 1 to rightIndex + 1
     } else if (v + right > target) {
       rightIndex--
     } else {
