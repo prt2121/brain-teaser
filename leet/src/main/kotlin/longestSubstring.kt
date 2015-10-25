@@ -1,3 +1,5 @@
+import java.util.*
+
 /**
  * Created by pt2121 on 10/24/15.
  */
@@ -13,13 +15,34 @@ fun longestSubstring(s: String): Int {
   var i = 0
   var maxLen = 0
   s.forEachIndexed { j, c ->
-    // if repeat, clear flag
-    while (existLetter[c.toInt()]) {
-      existLetter[s[i].toInt()] = false
+    if (!existLetter[c.toInt()]) {
+      existLetter[c.toInt()] = true
+    } else {
+      // if repeat, clear flag
+      while (s[i] != c) {
+        existLetter[s[i].toInt()] = false
+        i++
+      }
       i++
     }
-    existLetter[c.toInt()] = true
     maxLen = Math.max(j - i + 1, maxLen)
   }
   return maxLen
+}
+
+fun <T> longestSubList(ls: List<T>): Int {
+  var exist = HashSet<T>()
+  var leftPointer = 0
+  var longest = 0
+  ls.forEachIndexed { rightPointer, element ->
+    if (exist.contains(element)) {
+      exist.forEach { println(it) }
+      leftPointer += exist.size
+      exist.clear()
+    }
+    println("")
+    exist.add(element)
+    longest = Math.max(rightPointer - leftPointer + 1, longest)
+  }
+  return longest
 }
