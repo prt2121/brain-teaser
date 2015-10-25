@@ -11,7 +11,7 @@
 
 class Node(var value: Int = 0, var next: Node? = null) {}
 
-// O(N)
+// O(n)
 fun addNumbers(ls1: Node?, ls2: Node?): Node? {
   var num1 = ls1
   var num2 = ls2
