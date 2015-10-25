@@ -18,10 +18,10 @@ class longestSubstringTest {
   }
 
   @test fun testLongestSubList() {
-//    assertThat(longestSubList("abcdcedf".toList())).isEqualTo(4)
-//    assertThat(longestSubList("abcabcbb".toList())).isEqualTo(3)
+    assertThat(longestSubList("abcdcedf".toList())).isEqualTo(4)
+    assertThat(longestSubList("abcabcbb".toList())).isEqualTo(3)
     assertThat(longestSubList("bbbbb".toList())).isEqualTo(1)
-    //assertThat(longestSubList(listOf(4, 2, 3, 4, 5, 1, 2, 3, 4, 7, 9))).isEqualTo(7)
+    assertThat(longestSubList(listOf(4, 2, 3, 4, 5, 1, 2, 3, 4, 7, 9))).isEqualTo(7)
   }
 
 }

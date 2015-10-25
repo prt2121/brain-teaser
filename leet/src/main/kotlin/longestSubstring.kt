@@ -35,13 +35,16 @@ fun <T> longestSubList(ls: List<T>): Int {
   var leftPointer = 0
   var longest = 0
   ls.forEachIndexed { rightPointer, element ->
-    if (exist.contains(element)) {
-      exist.forEach { println(it) }
-      leftPointer += exist.size
-      exist.clear()
+    if (!exist.contains(element)) {
+      exist.add(element)
+    } else {
+      while (ls[leftPointer] != element) {
+        exist.remove(ls[leftPointer])
+        leftPointer++
+      }
+      leftPointer++
     }
     println("")
-    exist.add(element)
     longest = Math.max(rightPointer - leftPointer + 1, longest)
   }
   return longest
