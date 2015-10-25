@@ -6,6 +6,7 @@ import java.util.*
 
 // Given an array of integers, find two numbers such that they add up to a specific target number
 // return indices of the two numbers such that they add up to the target
+// https://leetcode.com/problems/two-sum/
 
 fun twoSumBruteForce(arr: Array<Int>, target: Int): Pair<Int, Int>? {
   val lastIndex = arr.lastIndex
