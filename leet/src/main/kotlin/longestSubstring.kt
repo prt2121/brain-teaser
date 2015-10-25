@@ -1,11 +1,9 @@
 import java.util.*
 
-/**
- * Created by pt2121 on 10/24/15.
- */
-
-// Longest Substring Without Repeating Characters
 /*
+Created by pt2121 on 10/24/15.
+
+Longest Substring Without Repeating Characters
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 Given a string, find the length of the longest substring without repeating characters.
@@ -44,7 +42,6 @@ fun <T> longestSubList(ls: List<T>): Int {
       }
       leftPointer++
     }
-    println("")
     longest = Math.max(rightPointer - leftPointer + 1, longest)
   }
   return longest
