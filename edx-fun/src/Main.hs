@@ -4,6 +4,12 @@ module Main where
 
 import Prelude hiding ((&&))
 
+mult :: Integer -> Integer -> Integer -> Integer
+mult = \x -> (\y -> (\z -> x * y * z))
+
+remove :: Int -> [a] -> [a]
+remove n xs = take n xs ++ drop (n+1) xs
+
 halve' :: [a] -> ([a], [a])
 halve' xs = splitAt (length xs `div` 2) xs
 
