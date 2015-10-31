@@ -2,7 +2,31 @@
 
 module Main where
 
+import Data.Char
 import Prelude hiding ((&&))
+
+nlowers = length ['a'..'z']
+nuppers = nlowers
+
+let2int :: Char -> Int
+let2int c | (c >= 'a') && (c <= 'z') = ord c - ord 'a'
+          | (c >= 'A') && (c <= 'Z') = ord c - ord 'A'
+          | otherwise = error "Character must be an alphabet character"
+
+int2llet :: Int -> Char
+int2llet n = chr (ord 'a' + n)
+
+int2ulet :: Int -> Char
+int2ulet n = chr (ord 'A' + n)
+
+-- shift
+shift :: Int -> Char -> Char
+shift n c | (c >= 'a') && (c <= 'z') = int2llet ((let2int c + n) `mod` nlowers)
+          | (c >= 'A') && (c <= 'Z') = int2ulet ((let2int c + n) `mod` nuppers)
+          | otherwise      = c
+
+encode :: Int -> String -> String
+encode n cs = [shift n c | c <- cs]
 
 mult :: Integer -> Integer -> Integer -> Integer
 mult = \x -> (\y -> (\z -> x * y * z))
