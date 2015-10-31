@@ -76,3 +76,8 @@ workspace.xml
 kotlin-reflect.jar
 kotlin-runtime-sources.jar
 kotlin-runtime.jar
+/bower_components/
+/node_modules/
+/output/
+/.psci*
+/src/.webpack.js
