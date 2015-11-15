@@ -8,6 +8,11 @@ import Prelude hiding ((&&))
 nlowers = length ['a'..'z']
 nuppers = nlowers
 
+dropWhile' _ [] = []
+dropWhile' p (x : xs)
+  | p x = dropWhile' p xs
+  | otherwise = x : xs
+
 let2int :: Char -> Int
 let2int c | (c >= 'a') && (c <= 'z') = ord c - ord 'a'
           | (c >= 'A') && (c <= 'Z') = ord c - ord 'A'
