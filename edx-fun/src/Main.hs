@@ -13,6 +13,24 @@ dropWhile' p (x : xs)
   | p x = dropWhile' p xs
   | otherwise = x : xs
 
+chop8 :: [Bit] -> [[Bit]]
+chop8 = unfold null (take 8) (drop 8)
+
+map :: (a -> b) -> [a] -> [b]
+map f = unfold null (f . head) tail
+
+iterate :: (a -> a) -> a -> [a]
+iterate f = unfold (const False) id f
+
+encode :: String -> [Bit]
+encode = concat . map (make9 . int2bin . ord)
+
+decode :: [Bit] -> String
+decode = map (chr . bin2int) . chop8
+
+transmit :: String -> String
+transmit = decode . id . encode  
+
 let2int :: Char -> Int
 let2int c | (c >= 'a') && (c <= 'z') = ord c - ord 'a'
           | (c >= 'A') && (c <= 'Z') = ord c - ord 'A'
