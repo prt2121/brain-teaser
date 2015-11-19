@@ -26,9 +26,12 @@ bigPrime n =
     then n
     else maximum x
         where x = do
-              i <- [2 .. n]
+              i <- [2 .. (sqrt' n)]
               guard (n `mod` i == 0 && isPrime i)
               return i
+
+sqrt' :: Integer -> Integer
+sqrt' = toInteger . ceiling . sqrt . fromIntegral
 
 isPrime x = not $ any divisible $ takeWhile notTooBig [2..] where
               divisible y = x `mod`y == 0
