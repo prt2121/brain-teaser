@@ -21,6 +21,19 @@ fib' n = fib'(n - 1) + fib'(n -2)
 fibs' :: [Integer]
 fibs' = 1 : 1 : zipWith (+) fibs' (tail fibs')
 
+-- freq [5,7,7,1,2,4,4,4] = [(1,1),(2,1),(4,3),(5,1),(7,2)]
+freq :: Ord a => [a] -> [(a, Int)]
+freq = map (\x -> (head x, length x)) . group . sort
+
+-- maxSecond [(7,1),(2,1),(4,3),(4,1),(7,2)] = [(2,1),(4,3),(7,2)]
+maxSecond ls = foldr f [] ls
+                  where f x acc = if (fst x) `elem` (map fst acc)
+                                    then
+                                      if (snd x) > snd(head (filter ((==fst x).fst) acc))
+                                        then x : filter ((/=fst x).fst) acc
+                                        else acc
+                                    else x : acc
+
 allPrimeFactors n =
   case factors of
     [] -> [n]
