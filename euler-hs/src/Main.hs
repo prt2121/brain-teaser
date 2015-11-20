@@ -2,6 +2,7 @@ module Main where
 import System.Environment
 import Text.ParserCombinators.Parsec hiding (spaces)
 import Control.Monad
+import Data.List
 
 e1 = sum [n | n <- [0..999], (mod n 3) == 0 || (mod n 5) == 0]
 
@@ -20,6 +21,33 @@ fib' n = fib'(n - 1) + fib'(n -2)
 fibs' :: [Integer]
 fibs' = 1 : 1 : zipWith (+) fibs' (tail fibs')
 
+e4 :: Integer -> Integer
+e4 = last . sort . filter isPalinNum . prodList
+
+prodList :: Integer -> [Integer]
+prodList n = [ x * y | x <- ls, y <- ls] where ls = [n, n-1 .. 0]
+
+isPalinNum :: Integral x => x -> Bool
+isPalinNum n
+  | n < 0     = error "seriously?"
+  | n < 10    = True
+  | otherwise = digs n == reverse (digs n)
+
+digs :: Integral x => x -> [x]
+digs 0 = []
+digs x = digs (x `div` 10) ++ [x `mod` 10]
+
+primeFactors :: Integer -> [Integer]
+primeFactors n =
+  if isPrime n
+    then [n]
+    else x
+        where x = do
+              i <- [2 .. (sqrt' n)]
+              guard (n `mod` i == 0 && isPrime i)
+              return i
+
+-- e3
 bigPrime :: Integer -> Integer
 bigPrime n =
   if isPrime n
