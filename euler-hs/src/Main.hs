@@ -21,6 +21,22 @@ fib' n = fib'(n - 1) + fib'(n -2)
 fibs' :: [Integer]
 fibs' = 1 : 1 : zipWith (+) fibs' (tail fibs')
 
+allPrimeFactors n =
+  case factors of
+    [] -> [n]
+    _  -> factors ++ allPrimeFactors (n `div` (head factors))
+  where factors = take 1 $ filter (\x -> (n `mod` x) == 0) [2 .. n-1]
+
+-- common prime factors
+cpf :: Integer -> [Integer]
+cpf m = foldr union [] xss
+  where xss = map allPrimeFactors [2 .. m]
+
+-- all common prime factors
+acpf :: Integer -> [Integer]
+acpf m = foldr (++) [] xss
+  where xss = map allPrimeFactors [2 .. m]
+
 e4 :: Integer -> Integer
 e4 = last . sort . filter isPalinNum . prodList
 
