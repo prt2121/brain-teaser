@@ -18,8 +18,12 @@ fib' 0 = 1
 fib' 1 = 1
 fib' n = fib'(n - 1) + fib'(n -2)
 
-fibs' :: [Integer]
-fibs' = 1 : 1 : zipWith (+) fibs' (tail fibs')
+fibs'' :: [Integer]
+fibs'' = 1 : 1 : zipWith (+) fibs'' (tail fibs'')
+
+-- Lazy-Dynamic-Programming
+fibDp n = fibsDp !! n
+  where fibsDp = 0 : 1 : zipWith (+) fibsDp (drop 1 fibsDp)
 
 -- freq [5,7,7,1,2,4,4,4] = [(1,1),(2,1),(4,3),(5,1),(7,2)]
 freq :: Ord a => [a] -> [(a, Integer)]
