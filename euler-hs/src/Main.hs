@@ -91,6 +91,16 @@ primeFactors n =
               guard (n `mod` i == 0 && isPrime i)
               return i
 
+-- e6
+sumOfSq :: [Integer] -> Integer
+sumOfSq = sum . map (^ 2)
+
+sqOfSum :: [Integer] -> Integer
+sqOfSum = (^ 2) . sum
+
+e6 :: [Integer] -> Integer
+e6 = liftM2 (-) sqOfSum sumOfSq
+
 -- e3
 bigPrime :: Integer -> Integer
 bigPrime n =
