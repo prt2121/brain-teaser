@@ -120,10 +120,10 @@ isPrime x = not $ any divisible $ takeWhile notTooBig [2..] where
               notTooBig y = y*y <= x
 
 -- list first i prime numbers
-primes i = take i $ 2 : [n | n <- [2..] , all (\x -> n `mod` x /= 0) (takeWhile (<= (sqrt' n)) $ primes (i - 1)) ]
+primes i = take i $ 2 : [n | n <- [3,5..] , all (\x -> n `mod` x /= 0) (takeWhile (<= (sqrt' n)) $ primes (i - 1)) ]
 
 prime n = last (primes n)
-  where primes i = take i $ 2 : [n | n <- [2..] , all (\x -> n `mod` x /= 0) (takeWhile (<= (sqrt' n)) $ primes (i - 1)) ]
+  where primes i = take i $ 2 : [n | n <- [3,5..] , all (\x -> n `mod` x /= 0) (takeWhile (<= (sqrt' n)) $ primes (i - 1)) ]
 
 main :: IO ()
 main = do
