@@ -125,6 +125,15 @@ primes i = take i $ 2 : [n | n <- [3,5..] , all (\x -> n `mod` x /= 0) (takeWhil
 prime n = last (primes n)
   where primes i = take i $ 2 : [n | n <- [3,5..] , all (\x -> n `mod` x /= 0) (takeWhile (<= (sqrt' n)) $ primes (i - 1)) ]
 
+primes' = 2 : filter (null . tail . primeFactors) [3,5..]
+
+primeFactors' n = factor n primes'
+    where
+      factor n (p:ps)
+          | p*p > n        = [n]
+          | n `mod` p == 0 = p : factor (n `div` p) (p:ps)
+          | otherwise      =     factor n ps
+
 main :: IO ()
 main = do
   putStrLn ("insert your string")
