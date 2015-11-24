@@ -8,10 +8,36 @@ var result = [];
 
 /**
  * @param {TreeNode} root
+ * @return {string[]}
  */
 var binaryTreePaths = function(root) {
-  dfs(root)
+  var ls = []
+  if(root === null) return [];
+  if(root.left === null && root.right === null) {
+    ls.push(root.val.toString())
+    return ls;
+  }
+  if(root.left !== null) {
+    dfsPaths(root.left, root.val, ls);
+  }
+  if(root.right !== null) {
+    dfsPaths(root.right, root.val, ls);
+  }
+  return ls;
 };
+
+var dfsPaths = function(node, path, ls) {
+  var p = path.toString().concat("->", node.val);
+  if (node.left === null && node.right === null) {
+    ls.push(p);
+  }
+  if (node.left !== null) {
+    dfsPaths(node.left, p, ls);
+  }
+  if (node.right !== null) {
+    dfsPaths(node.right, p, ls);
+  }
+}
 
 var dfs = function(node) {
   result.push(node.val)
@@ -63,4 +89,5 @@ seven.left = six
 
 // new dfs(three);
 
-console.log(new bfs(three))
+//console.log(new bfs(three))
+console.log(new binaryTreePaths(three))
