@@ -3,7 +3,19 @@
 module Main where
 
 import Data.Char
+import Data.Tree
 import Prelude hiding ((&&))
+
+-- sequence_ xs evaluates all monadic values in the list xs, from left to right, and returns () inside a monad. Note, that "evaluating" can be read as "performing an action".
+-- The difference between sequence and sequence_ is that sequence returns a list of the results, while sequence_ returns an empty result.
+-- sequence_ [print 1, print 2, print 3]
+sequence_' [] = return ()
+sequence_' (m : ms) = (foldl (>>) m ms) >> return ()
+
+sequence_'2 ms = foldl (>>) (return ()) ms
+
+sequence_'3 [] = return ()
+sequence_'3 (m : ms) = m >> sequence_' ms
 
 nlowers = length ['a'..'z']
 nuppers = nlowers
@@ -116,6 +128,51 @@ get xs = do x <- getChar
               '\n' -> return xs
               _ -> get (xs ++ [x])
 
+tree1 = Node "A" [Node "B" [], Node "C" [Node "D" [], Node "E" []]]
+
+someTree :: Tree Int
+someTree = r
+  where r = Node { rootLabel = 0, subForest = [n1, n4] }
+        n1   = Node { rootLabel = 1, subForest = [n2, n3] }
+        n2   = Node { rootLabel = 2, subForest = [] }
+        n3   = Node { rootLabel = 3, subForest = [] }
+        n4   = Node { rootLabel = 4, subForest = [] }
+
+traverseDepth :: Tree a -> [a]
+traverseDepth (Node r forest) = r : concat [ traverseDepth n | n <- forest]
+
+traverseBreadth :: Tree a -> [a]
+traverseBreadth t = tb [t]
+                        where tb []     = []
+                              tb forest = map rootLabel forest ++ tb sub
+                                 where sub = concat(map subForest forest)
+
 main :: IO ()
 main = do
-  putStrLn "hello world"
+         putStrLn "hello world"
+
+-- *Main> putStrLn $ drawTree tree1
+-- A
+-- |
+-- +- B
+-- |
+-- `- C
+--    |
+--    +- D
+--    |
+--    `- E
+-- *Main> print $ levels tree1
+-- [["A"],["B","C"],["D","E"]]
+-- *Main> fmap show someTree
+-- Node {rootLabel = "0", subForest = [Node {rootLabel = "1", subForest = [Node {rootLabel = "2", subForest = []},Node {rootLabel = "3", subForest = []}]},Node {rootLabel = "4", subForest = []}]}
+
+-- *Main> putStrLn $ drawTree (fmap show someTree)
+-- 0
+-- |
+-- +- 1
+-- |  |
+-- |  +- 2
+-- |  |
+-- |  `- 3
+-- |
+-- `- 4
