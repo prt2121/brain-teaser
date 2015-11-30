@@ -20,6 +20,13 @@ instance Applicative BsT where
     (Node f l r) <*> (Node v l' r') = Node (f v) (l <*> l') (r <*> r')
     _ <*> _                         = Empty
 
+insert :: Ord a => BsT a -> a -> BsT a
+insert Empty v         =  leaf v
+insert (Node v l r) v'
+    | v' < v    =  Node v (insert l v') r
+    | v' > v    =  Node v l (insert r v')
+    | otherwise =  Node v l r  -- do nothing
+
 leaf :: a -> BsT a
 leaf n = Node n Empty Empty
 
@@ -97,3 +104,32 @@ t3 =
 --           +- 9
 --           |
 --           `- 13
+
+--     *BsT> let newT1 = insert t2 10
+--     *BsT> putStrLn $ drawTree $ fmap show $ newT1
+--     7
+--     |
+--     +- 4
+--     |  |
+--     |  +- 2
+--     |  |
+--     |  `- 5
+--     |
+--     `- 9
+--        |
+--        `- 10
+--
+--     *BsT> putStrLn $ drawTree $ fmap show $ insert newT1 8
+--     7
+--     |
+--     +- 4
+--     |  |
+--     |  +- 2
+--     |  |
+--     |  `- 5
+--     |
+--     `- 9
+--        |
+--        +- 8
+--        |
+--        `- 10
