@@ -27,15 +27,18 @@ drawTree :: BsT String -> String
 drawTree  = unlines . draw
 
 draw :: BsT String -> [String]
-draw Empty           =  []
-draw (Node v l r)    =  v : ((drawL l) ++ (drawR r))
+draw Empty               =  []
+draw (Node v Empty Empty)   =  [v]
+draw (Node v Empty r)       =  v : "|" : shift "`- " "   " (draw r)
+draw (Node v l Empty)       =  v : "|" : shift "`- " "   " (draw l)
+draw (Node v l r)           =  v : ((drawL l) ++ (drawR r))
     where
           drawL Empty       =  []
           drawL l           =  "|" : shift "+- " "|  " (draw l)
           drawR Empty       =  []
           drawR r           =  "|" : shift "`- " "   " (draw r)
-          shift :: [a] -> [a] -> [[a]] -> [[a]]
-          shift first other =  zipWith (++) (first : repeat other)
+shift :: [a] -> [a] -> [[a]] -> [[a]]
+shift first other =  zipWith (++) (first : repeat other)
 
 t1 :: BsT Integer
 t1 = Node 5
@@ -89,8 +92,8 @@ t3 =
 --     |
 --     `- 8
 --        |
---        +- 10
---        |  |
---        |  +- 9
---        |  |
---        |  `- 13
+--        `- 10
+--           |
+--           +- 9
+--           |
+--           `- 13
