@@ -54,8 +54,29 @@ contain (Node v l r) v'
     | v' > v = contain r v'
     | otherwise = True
 
+-- value of the root
+value :: BsT a -> Maybe a
+value Empty        = Nothing
+value (Node v l r) = Just v
+
+isLeaf :: BsT a -> Bool
+isLeaf (Node v Empty Empty) = True
+isLeaf _ = False
+
+valid :: Ord a => BsT a -> Bool
+valid Empty = True
+valid (Node v l r) = (maybe True (<v) $ value l) && (maybe True (>v) $ value r) && valid l && valid r
+
 t1 :: BsT Integer
 t1 = Node 5
+          (Node 2 (leaf 1)
+                  (leaf 3))
+          (Node 8
+                  Empty
+                  (Node 10 (leaf 9) (leaf 13)))
+
+invalidT :: BsT Integer
+invalidT = Node 5
           (Node 2 (leaf 1)
                   (leaf 3))
           (Node 8
