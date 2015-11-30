@@ -47,6 +47,13 @@ draw (Node v l r)           =  v : ((drawL l) ++ (drawR r))
 shift :: [a] -> [a] -> [[a]] -> [[a]]
 shift first other =  zipWith (++) (first : repeat other)
 
+contain :: Ord a => BsT a -> a -> Bool
+contain Empty v = False
+contain (Node v l r) v'
+    | v' < v = contain l v'
+    | v' > v = contain r v'
+    | otherwise = True
+
 t1 :: BsT Integer
 t1 = Node 5
           (Node 2 (leaf 1)
