@@ -30,11 +30,15 @@ insert (Node v l r) v'
 leaf :: a -> BsT a
 leaf n = Node n Empty Empty
 
+traverseDepth :: BsT a -> [a]
+traverseDepth Empty                 = []
+traverseDepth (Node v l r)          = v : traverseDepth l ++ traverseDepth r
+
 drawTree :: BsT String -> String
 drawTree  = unlines . draw
 
 draw :: BsT String -> [String]
-draw Empty               =  []
+draw Empty                  =  []
 draw (Node v Empty Empty)   =  [v]
 draw (Node v Empty r)       =  v : "|" : shift "`- " "   " (draw r)
 draw (Node v l Empty)       =  v : "|" : shift "`- " "   " (draw l)
