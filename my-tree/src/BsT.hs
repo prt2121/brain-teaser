@@ -34,6 +34,20 @@ traverseDepth :: BsT a -> [a]
 traverseDepth Empty                 = []
 traverseDepth (Node v l r)          = v : traverseDepth l ++ traverseDepth r
 
+traverseBreadth :: BsT a -> [a]
+traverseBreadth t                   = go [t]
+    where
+        go []               =  []
+        go ts               =  concat(map val ts) ++ (go $ children ts)
+        children ls         =  foldr (\x acc -> (branch x) ++ acc) [] ls
+
+-- list of direct children
+branch :: BsT t -> [BsT t]
+branch Empty              =  []
+branch (Node _ l Empty)   =  [l]
+branch (Node _ Empty r)   =  [r]
+branch (Node _ l r)       =  [l, r]
+
 drawTree :: BsT String -> String
 drawTree  = unlines . draw
 
@@ -62,6 +76,10 @@ contain (Node v l r) v'
 value :: BsT a -> Maybe a
 value Empty        = Nothing
 value (Node v l r) = Just v
+
+val :: BsT a -> [a]
+val Empty           =  []
+val (Node v _ _)    =  [v]
 
 isLeaf :: BsT a -> Bool
 isLeaf (Node v Empty Empty) = True
