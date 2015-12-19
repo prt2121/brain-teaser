@@ -4,6 +4,7 @@
 object RNG {
 
   type Rand[+A] = RNG => (A, RNG)
+  // or type Rand[A] = State[RNG, A]
 
   val int: Rand[Int] = _.nextInt
 
@@ -62,6 +63,8 @@ object RNG {
         nonNegativeLessThan(n)
     }
   }
+
+  def rollDie: Rand[Int] = map(nonNegativeLessThan(6))(_ + 1)
 
   case class SimpleRng(seed: Long) extends RNG {
 
