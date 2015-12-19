@@ -1,3 +1,5 @@
+import _root_.RNG.SimpleRng
+
 val rng = SimpleRng(42)
 val (n1, rng2) = rng.nextInt
 val (n2, rng3) = rng2.nextInt
