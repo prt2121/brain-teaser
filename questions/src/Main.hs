@@ -2,6 +2,8 @@ module Main where
 
 import System.Random
 import Control.Monad
+import Data.List
+import Control.Applicative
 
 -- P21> insertAt 'X' "abcd" 2
 -- "aXbcd"
@@ -20,6 +22,46 @@ range x y
 
 rollDiceIO :: IO (Int, Int)
 rollDiceIO = liftM2 (,) (randomRIO (1,6)) (randomRIO (1,6))
+
+-- Problem 23
+-- Extract a given number of randomly selected elements from a list.
+-- *Main Data.List System.Random> g <- newStdGen
+-- *Main Data.List System.Random> rndSelect "taetasdfasdfljsdklf" 3 g
+-- "lfs"
+rndSelect :: (RandomGen g, Random a) => [a] -> Int -> g -> [a]
+rndSelect ls n g = getList ls (randomSelect (length ls) n g)
+                    where
+                        getList ls [] = []
+                        getList ls (x:xs) = (ls !! (x - 1)) : getList ls xs
+
+rndSelect' :: (RandomGen g, Random a) => [a] -> Int -> g -> [a]
+rndSelect' ls n g = getList ls (randomSelect (length ls) n g)
+                    where
+                        getList ls pos = [ls!!(p - 1) | p <- pos]
+
+-- deleteElems xs zs = foldr1 intersect $ map ($ zs) $ map deleteElem xs
+
+-- Prelude Data.List> import System.Random
+-- Prelude Data.List System.Random> g <- newStdGen
+-- Prelude Data.List System.Random> take 5 $ nub $ randomRs (1, 20) g
+-- [16,15,11,6,10]
+-- *Main Data.List System.Random> g <- newStdGen
+-- *Main Data.List System.Random> randomSelect 10 3 g
+-- [10,9,5]
+-- Problem 24
+-- Lotto: Draw N different random numbers from the set 1..M.
+randomSelect :: RandomGen g => Int -> Int -> g -> [Int]
+randomSelect max n g = take n $ nub $ randomRs (1, max) g
+
+diffSelect :: Int -> Int -> StdGen -> [Int]
+diffSelect n m = take n . nub . randomRs (1, m)
+
+diffSelect' :: Int -> Int -> IO [Int]
+diffSelect' n m = take n . nub . randomRs (1, m) <$> getStdGen
+
+-- Problem 25
+rndPermu :: Random a => [a] -> IO [a]
+rndPermu ls = rndSelect' ls (length ls) <$> getStdGen
 
 main :: IO ()
 main = do
