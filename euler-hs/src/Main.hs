@@ -87,9 +87,9 @@ primeFactors n =
     then [n]
     else x
         where x = do
-              i <- [2 .. (sqrt' n)]
-              guard (n `mod` i == 0 && isPrime i)
-              return i
+                i <- [2 .. (sqrt' n)]
+                guard (n `mod` i == 0 && isPrime i)
+                return i
 
 -- e6
 sumOfSq :: [Integer] -> Integer
@@ -108,9 +108,9 @@ bigPrime n =
     then n
     else maximum x
         where x = do
-              i <- [2 .. (sqrt' n)]
-              guard (n `mod` i == 0 && isPrime i)
-              return i
+                i <- [2 .. (sqrt' n)]
+                guard (n `mod` i == 0 && isPrime i)
+                return i
 
 sqrt' :: Integer -> Integer
 sqrt' = toInteger . ceiling . sqrt . fromIntegral
