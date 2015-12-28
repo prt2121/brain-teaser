@@ -1,4 +1,6 @@
-module Basics01 where
+module CharPttrn1 where
+
+-- CPTTRN1
 
 import Data.List
 import Control.Applicative
