@@ -17,6 +17,8 @@
 		67159F7A1C32E10A00718F30 /* Swiftz.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67159F771C32E05600718F30 /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		67159F841C32EEE900718F30 /* ZigZagConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F831C32EEE900718F30 /* ZigZagConversion.swift */; };
 		67159F871C32F40500718F30 /* ZigZagConversionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F861C32F40500718F30 /* ZigZagConversionTest.swift */; };
+		67159F8D1C334E3A00718F30 /* ReverseInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F8C1C334E3A00718F30 /* ReverseInteger.swift */; };
+		67159F8F1C33595700718F30 /* ReverseIntegerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F8E1C33595700718F30 /* ReverseIntegerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		67159F771C32E05600718F30 /* Swiftz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swiftz.framework; path = Carthage/Build/iOS/Swiftz.framework; sourceTree = "<group>"; };
 		67159F831C32EEE900718F30 /* ZigZagConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZigZagConversion.swift; sourceTree = "<group>"; };
 		67159F861C32F40500718F30 /* ZigZagConversionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZigZagConversionTest.swift; sourceTree = "<group>"; };
+		67159F8C1C334E3A00718F30 /* ReverseInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseInteger.swift; sourceTree = "<group>"; };
+		67159F8E1C33595700718F30 /* ReverseIntegerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseIntegerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				67159F5F1C32D47C00718F30 /* LaunchScreen.storyboard */,
 				67159F621C32D47C00718F30 /* Info.plist */,
 				67159F831C32EEE900718F30 /* ZigZagConversion.swift */,
+				67159F8C1C334E3A00718F30 /* ReverseInteger.swift */,
 			);
 			path = leets;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				67159F6B1C32D47C00718F30 /* leetsTests.swift */,
 				67159F6D1C32D47C00718F30 /* Info.plist */,
 				67159F861C32F40500718F30 /* ZigZagConversionTest.swift */,
+				67159F8E1C33595700718F30 /* ReverseIntegerTest.swift */,
 			);
 			path = leetsTests;
 			sourceTree = "<group>";
@@ -223,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67159F591C32D47C00718F30 /* ViewController.swift in Sources */,
+				67159F8D1C334E3A00718F30 /* ReverseInteger.swift in Sources */,
 				67159F571C32D47C00718F30 /* AppDelegate.swift in Sources */,
 				67159F841C32EEE900718F30 /* ZigZagConversion.swift in Sources */,
 			);
@@ -232,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67159F8F1C33595700718F30 /* ReverseIntegerTest.swift in Sources */,
 				67159F871C32F40500718F30 /* ZigZagConversionTest.swift in Sources */,
 				67159F6C1C32D47C00718F30 /* leetsTests.swift in Sources */,
 			);
