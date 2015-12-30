@@ -19,6 +19,8 @@
 		67159F871C32F40500718F30 /* ZigZagConversionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F861C32F40500718F30 /* ZigZagConversionTest.swift */; };
 		67159F8D1C334E3A00718F30 /* ReverseInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F8C1C334E3A00718F30 /* ReverseInteger.swift */; };
 		67159F8F1C33595700718F30 /* ReverseIntegerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F8E1C33595700718F30 /* ReverseIntegerTest.swift */; };
+		67159F911C3372C900718F30 /* StringToInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F901C3372C900718F30 /* StringToInteger.swift */; };
+		67159F931C33822700718F30 /* StringToIntegerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F921C33822700718F30 /* StringToIntegerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		67159F861C32F40500718F30 /* ZigZagConversionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZigZagConversionTest.swift; sourceTree = "<group>"; };
 		67159F8C1C334E3A00718F30 /* ReverseInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseInteger.swift; sourceTree = "<group>"; };
 		67159F8E1C33595700718F30 /* ReverseIntegerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseIntegerTest.swift; sourceTree = "<group>"; };
+		67159F901C3372C900718F30 /* StringToInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToInteger.swift; sourceTree = "<group>"; };
+		67159F921C33822700718F30 /* StringToIntegerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToIntegerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				67159F621C32D47C00718F30 /* Info.plist */,
 				67159F831C32EEE900718F30 /* ZigZagConversion.swift */,
 				67159F8C1C334E3A00718F30 /* ReverseInteger.swift */,
+				67159F901C3372C900718F30 /* StringToInteger.swift */,
 			);
 			path = leets;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 				67159F6D1C32D47C00718F30 /* Info.plist */,
 				67159F861C32F40500718F30 /* ZigZagConversionTest.swift */,
 				67159F8E1C33595700718F30 /* ReverseIntegerTest.swift */,
+				67159F921C33822700718F30 /* StringToIntegerTest.swift */,
 			);
 			path = leetsTests;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 				67159F8D1C334E3A00718F30 /* ReverseInteger.swift in Sources */,
 				67159F571C32D47C00718F30 /* AppDelegate.swift in Sources */,
 				67159F841C32EEE900718F30 /* ZigZagConversion.swift in Sources */,
+				67159F911C3372C900718F30 /* StringToInteger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67159F931C33822700718F30 /* StringToIntegerTest.swift in Sources */,
 				67159F8F1C33595700718F30 /* ReverseIntegerTest.swift in Sources */,
 				67159F871C32F40500718F30 /* ZigZagConversionTest.swift in Sources */,
 				67159F6C1C32D47C00718F30 /* leetsTests.swift in Sources */,
