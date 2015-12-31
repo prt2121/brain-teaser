@@ -12,7 +12,7 @@ import XCTest
 class StringToIntegerTest: XCTestCase {
     
     func testCase001() {
-        let i : Int = StringToInteger.atoi("123")
+        let i : Int = StringToInteger.atoi01("123")
         let expected = 123
         assert(expected == i)
     }

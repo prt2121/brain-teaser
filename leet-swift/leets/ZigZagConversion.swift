@@ -7,7 +7,6 @@
 //
 // https://leetcode.com/problems/zigzag-conversion/
 
-import Foundation
 import Swiftz
 import struct Swiftz.List
 

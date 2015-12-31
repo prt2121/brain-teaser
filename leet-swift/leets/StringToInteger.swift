@@ -7,7 +7,8 @@
 //
 //  https://leetcode.com/problems/string-to-integer-atoi/
 //  
-//  NOT consider all possible input cases
+//  NOT consider all possible input cases. 
+//  idk. imo, the requirement makes the function behavior unpredictable. (Bad API)
 
 import Swiftz
 import struct Swiftz.List
@@ -27,10 +28,8 @@ class StringToInteger {
         return Int(str) ?? 0
     }
     // lol 2
-    class func atoi(str: String) -> Int {
+    class func atoi01(str: String) -> Int {
         return List(fromArray: Array(str.characters))
-            .reduce(0) {
-                $0 * 10 + $1.intVal
-            }
+            .reduce(0) { $0 * 10 + $1.intVal }
     }
 }
