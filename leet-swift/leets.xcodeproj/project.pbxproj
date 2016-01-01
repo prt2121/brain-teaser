@@ -27,6 +27,9 @@
 		671BCAFC1C361705003AF72C /* LongestCommonPrefixTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCAFB1C361705003AF72C /* LongestCommonPrefixTest.swift */; };
 		671BCAFE1C36CB38003AF72C /* ValidParentheses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCAFD1C36CB38003AF72C /* ValidParentheses.swift */; };
 		671BCB001C36CE77003AF72C /* ValidParenthesesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCAFF1C36CE77003AF72C /* ValidParenthesesTest.swift */; };
+		671BCB021C37029C003AF72C /* MergeTwoSortedLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCB011C37029C003AF72C /* MergeTwoSortedLists.swift */; };
+		671BCB041C370AA6003AF72C /* MergeTwoSortedListsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCB031C370AA6003AF72C /* MergeTwoSortedListsTest.swift */; };
+		671BCB051C370D69003AF72C /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67159F771C32E05600718F30 /* Swiftz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,8 @@
 		671BCAFB1C361705003AF72C /* LongestCommonPrefixTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongestCommonPrefixTest.swift; sourceTree = "<group>"; };
 		671BCAFD1C36CB38003AF72C /* ValidParentheses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidParentheses.swift; sourceTree = "<group>"; };
 		671BCAFF1C36CE77003AF72C /* ValidParenthesesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidParenthesesTest.swift; sourceTree = "<group>"; };
+		671BCB011C37029C003AF72C /* MergeTwoSortedLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeTwoSortedLists.swift; sourceTree = "<group>"; };
+		671BCB031C370AA6003AF72C /* MergeTwoSortedListsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeTwoSortedListsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671BCB051C370D69003AF72C /* Swiftz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +137,7 @@
 				671BCAF51C35CE85003AF72C /* PalindromeNumber.swift */,
 				671BCAF91C35F06C003AF72C /* LongestCommonPrefix.swift */,
 				671BCAFD1C36CB38003AF72C /* ValidParentheses.swift */,
+				671BCB011C37029C003AF72C /* MergeTwoSortedLists.swift */,
 			);
 			path = leets;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 				671BCAF71C35D305003AF72C /* PalindromeNumberTest.swift */,
 				671BCAFB1C361705003AF72C /* LongestCommonPrefixTest.swift */,
 				671BCAFF1C36CE77003AF72C /* ValidParenthesesTest.swift */,
+				671BCB031C370AA6003AF72C /* MergeTwoSortedListsTest.swift */,
 			);
 			path = leetsTests;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 				67159F8D1C334E3A00718F30 /* ReverseInteger.swift in Sources */,
 				67159F571C32D47C00718F30 /* AppDelegate.swift in Sources */,
 				671BCAFE1C36CB38003AF72C /* ValidParentheses.swift in Sources */,
+				671BCB021C37029C003AF72C /* MergeTwoSortedLists.swift in Sources */,
 				671BCAFA1C35F06C003AF72C /* LongestCommonPrefix.swift in Sources */,
 				671BCAF61C35CE85003AF72C /* PalindromeNumber.swift in Sources */,
 				67159F841C32EEE900718F30 /* ZigZagConversion.swift in Sources */,
@@ -269,6 +278,7 @@
 			files = (
 				67159F931C33822700718F30 /* StringToIntegerTest.swift in Sources */,
 				671BCAFC1C361705003AF72C /* LongestCommonPrefixTest.swift in Sources */,
+				671BCB041C370AA6003AF72C /* MergeTwoSortedListsTest.swift in Sources */,
 				67159F8F1C33595700718F30 /* ReverseIntegerTest.swift in Sources */,
 				67159F871C32F40500718F30 /* ZigZagConversionTest.swift in Sources */,
 				67159F6C1C32D47C00718F30 /* leetsTests.swift in Sources */,
@@ -424,6 +434,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = leetsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt2121.leetsTests;
@@ -436,6 +450,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = leetsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt2121.leetsTests;
