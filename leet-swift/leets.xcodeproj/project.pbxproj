@@ -23,6 +23,8 @@
 		67159F931C33822700718F30 /* StringToIntegerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F921C33822700718F30 /* StringToIntegerTest.swift */; };
 		671BCAF61C35CE85003AF72C /* PalindromeNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCAF51C35CE85003AF72C /* PalindromeNumber.swift */; };
 		671BCAF81C35D305003AF72C /* PalindromeNumberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCAF71C35D305003AF72C /* PalindromeNumberTest.swift */; };
+		671BCAFA1C35F06C003AF72C /* LongestCommonPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCAF91C35F06C003AF72C /* LongestCommonPrefix.swift */; };
+		671BCAFC1C361705003AF72C /* LongestCommonPrefixTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671BCAFB1C361705003AF72C /* LongestCommonPrefixTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		67159F921C33822700718F30 /* StringToIntegerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToIntegerTest.swift; sourceTree = "<group>"; };
 		671BCAF51C35CE85003AF72C /* PalindromeNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalindromeNumber.swift; sourceTree = "<group>"; };
 		671BCAF71C35D305003AF72C /* PalindromeNumberTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalindromeNumberTest.swift; sourceTree = "<group>"; };
+		671BCAF91C35F06C003AF72C /* LongestCommonPrefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongestCommonPrefix.swift; sourceTree = "<group>"; };
+		671BCAFB1C361705003AF72C /* LongestCommonPrefixTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongestCommonPrefixTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				67159F8C1C334E3A00718F30 /* ReverseInteger.swift */,
 				67159F901C3372C900718F30 /* StringToInteger.swift */,
 				671BCAF51C35CE85003AF72C /* PalindromeNumber.swift */,
+				671BCAF91C35F06C003AF72C /* LongestCommonPrefix.swift */,
 			);
 			path = leets;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 				67159F8E1C33595700718F30 /* ReverseIntegerTest.swift */,
 				67159F921C33822700718F30 /* StringToIntegerTest.swift */,
 				671BCAF71C35D305003AF72C /* PalindromeNumberTest.swift */,
+				671BCAFB1C361705003AF72C /* LongestCommonPrefixTest.swift */,
 			);
 			path = leetsTests;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				67159F591C32D47C00718F30 /* ViewController.swift in Sources */,
 				67159F8D1C334E3A00718F30 /* ReverseInteger.swift in Sources */,
 				67159F571C32D47C00718F30 /* AppDelegate.swift in Sources */,
+				671BCAFA1C35F06C003AF72C /* LongestCommonPrefix.swift in Sources */,
 				671BCAF61C35CE85003AF72C /* PalindromeNumber.swift in Sources */,
 				67159F841C32EEE900718F30 /* ZigZagConversion.swift in Sources */,
 				67159F911C3372C900718F30 /* StringToInteger.swift in Sources */,
@@ -254,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67159F931C33822700718F30 /* StringToIntegerTest.swift in Sources */,
+				671BCAFC1C361705003AF72C /* LongestCommonPrefixTest.swift in Sources */,
 				67159F8F1C33595700718F30 /* ReverseIntegerTest.swift in Sources */,
 				67159F871C32F40500718F30 /* ZigZagConversionTest.swift in Sources */,
 				67159F6C1C32D47C00718F30 /* leetsTests.swift in Sources */,
