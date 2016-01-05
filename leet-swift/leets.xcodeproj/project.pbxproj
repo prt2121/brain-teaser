@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6713575F1C37727400B0023C /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713575E1C37727400B0023C /* RemoveDuplicates.swift */; };
+		671357611C377B3400B0023C /* RemoveDuplicatesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671357601C377B3400B0023C /* RemoveDuplicatesTest.swift */; };
 		67159F571C32D47C00718F30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F561C32D47C00718F30 /* AppDelegate.swift */; };
 		67159F591C32D47C00718F30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67159F581C32D47C00718F30 /* ViewController.swift */; };
 		67159F5C1C32D47C00718F30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67159F5A1C32D47C00718F30 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6713575E1C37727400B0023C /* RemoveDuplicates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
+		671357601C377B3400B0023C /* RemoveDuplicatesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveDuplicatesTest.swift; sourceTree = "<group>"; };
 		67159F531C32D47C00718F30 /* leets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67159F561C32D47C00718F30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67159F581C32D47C00718F30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				671BCAF91C35F06C003AF72C /* LongestCommonPrefix.swift */,
 				671BCAFD1C36CB38003AF72C /* ValidParentheses.swift */,
 				671BCB011C37029C003AF72C /* MergeTwoSortedLists.swift */,
+				6713575E1C37727400B0023C /* RemoveDuplicates.swift */,
 			);
 			path = leets;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				671BCAFB1C361705003AF72C /* LongestCommonPrefixTest.swift */,
 				671BCAFF1C36CE77003AF72C /* ValidParenthesesTest.swift */,
 				671BCB031C370AA6003AF72C /* MergeTwoSortedListsTest.swift */,
+				671357601C377B3400B0023C /* RemoveDuplicatesTest.swift */,
 			);
 			path = leetsTests;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				67159F571C32D47C00718F30 /* AppDelegate.swift in Sources */,
 				671BCAFE1C36CB38003AF72C /* ValidParentheses.swift in Sources */,
 				671BCB021C37029C003AF72C /* MergeTwoSortedLists.swift in Sources */,
+				6713575F1C37727400B0023C /* RemoveDuplicates.swift in Sources */,
 				671BCAFA1C35F06C003AF72C /* LongestCommonPrefix.swift in Sources */,
 				671BCAF61C35CE85003AF72C /* PalindromeNumber.swift in Sources */,
 				67159F841C32EEE900718F30 /* ZigZagConversion.swift in Sources */,
@@ -277,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67159F931C33822700718F30 /* StringToIntegerTest.swift in Sources */,
+				671357611C377B3400B0023C /* RemoveDuplicatesTest.swift in Sources */,
 				671BCAFC1C361705003AF72C /* LongestCommonPrefixTest.swift in Sources */,
 				671BCB041C370AA6003AF72C /* MergeTwoSortedListsTest.swift in Sources */,
 				67159F8F1C33595700718F30 /* ReverseIntegerTest.swift in Sources */,

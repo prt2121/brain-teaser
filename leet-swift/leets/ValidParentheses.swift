@@ -41,31 +41,3 @@ class ValidParentheses {
             initial: [Character]()).isEmpty
     }
 }
-
-
-//let arr = s.reduce({
-//    (arr : [Character], char : Character) in
-//    return arr.
-//    },
-//    initial: [Character]())
-//arr.forEach { print(" \($0) ") }
-//
-//let x = Array(arrayLiteral: s.characters)
-//    .map { String($0) }
-//    .foldRight([String]()) {
-//        char, stack in
-//        print("char \(char)")
-//        print("first \(stack.first)")
-//        if "({[".containsString(char) {
-//            return stack.cons(char)
-//        } else if ")}]".containsString(String(char)) {
-//            if stack.count == 0 || stack.first != dict[char] {
-//                return stack.cons(char)
-//            } else {
-//                return Array(stack.dropFirst(1))
-//            }
-//        }
-//        return stack
-//}
-//return String(x)
-

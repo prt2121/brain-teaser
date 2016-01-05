@@ -16,7 +16,7 @@ import Swiftz
 
 class PalindromeNumber {
     class func isPalindrome(x : Int) -> Bool {
-        func safeTime10(n : Int?) -> Int? {
+        func safeTimes10(n : Int?) -> Int? {
             if n > Int.max / 10 {
                 return nil
             } else {
@@ -33,7 +33,7 @@ class PalindromeNumber {
                     return (m, d)
                 }
                 .take(UInt(String(x).characters.count))
-                .foldRight(Optional(0)) { $1 >>- safeTime10 >>- curry(+)($0) }
+                .foldRight(Optional(0)) { $1 >>- safeTimes10 >>- curry(+)($0) }
                 .getOrElse(-1)
         }
     }
