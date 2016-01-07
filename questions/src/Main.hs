@@ -5,6 +5,13 @@ import Control.Monad
 import Data.List
 import Control.Applicative
 
+-- Problem 26
+-- Generate the combinations of K distinct objects
+combinations :: Int -> [a] -> [[a]]
+combinations 0 _    = [[]]
+combinations n xs = [ l:ls | l:xs' <- tails xs
+                           , ls <- combinations (n - 1) xs' ]
+
 -- P21> insertAt 'X' "abcd" 2
 -- "aXbcd"
 insertAt :: (Eq a, Num a) => a1 -> [a1] -> a -> [a1]
